@@ -1,0 +1,19 @@
+Assignment –2 
+
+Introducing Relational Databases. 
+ 
+1) Which field of the Customers table is the primary key?
+>CNUM 
+
+2) What is the 4th column of the Customers table?
+>RATING
+
+3) What is another word for row?  For column?
+>Row is also called as--Tuple,Entity,Opportunity 
+  Column is also called as--Attribute, Method
+
+4) Why isn’t it possible to see the first five rows of a table? 
+>In RDBMS table is not a file,every row is a file.
+Rows of table not store sequentially.
+Rows of the table are scattered(fragmented) all over the database(DB) server harddisk(HD) (common for all RDBMS). 
+So thats why it is not possible to see first 5 rows of a table.  
