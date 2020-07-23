@@ -1,0 +1,121 @@
+create database department;
+use department;
+create table SEMP
+(
+EMPNO char(4),
+EMPNAME char(20),
+BASIC float(9,2),
+DEPTNO char(2),
+DEPTHEAD char(4)
+);
+create table SDEPT
+(
+DEPTNO char(2),
+DEPTNAME char(15)
+);
+insert into SDEPT values(10, 'Development');
+insert into SDEPT values(20, 'Training');
+insert into SEMP(EMPNO,EMPNAME,BASIC,DEPTNO)
+values(0001, 'SUNIL', 6000, 10);
+insert into SEMP(EMPNO,EMPNAME,BASIC,DEPTNO)
+values(0002, 'HIREN', 8000, 20);
+insert into SEMP(EMPNO,EMPNAME,BASIC,DEPTNO,DEPTHEAD)
+values(0003, 'ALI', 4000, 10, 0001);
+insert into SEMP(EMPNO,EMPNAME,BASIC,DEPTHEAD)
+values(0004, 'GEORGE', 6000, 0002);
+
+create table SUPPLIER(
+`S#` char(4),
+Sname varchar(25),
+Status int,
+City char(15)
+);
+
+insert into SUPPLIER values ('S1','Shruti',10,'London'),
+							('S2','Ashwini',20,'Paris'),
+							('S3','Anuja',30,'Athens'),
+                            ('S4','Yash',40,'Boston'),
+							('S5','Shubham',60,'Sydeny'),
+                            ('S6','Laxman',50,'London'),
+                            ('S7','Shweta',70,'Paris');
+                            
+select * from SUPPLIER;                            
+create table PARTS(
+`P#` char(6),
+Pname varchar(20),
+Color varchar(25),
+Weight float(4,2),
+City char(20)
+);
+
+insert into PARTS values('P1','part x','red',70.60,'Paris'),
+						('P2','part y','orange',60.20,'Sydeny'),
+						('P3','part z','blue',40.00,'Athens'),
+                        ('P4','part l','black',50.00,'Boston'),
+						('P5','part m ','green',64,'London'),
+                        ('P6','part n','yellow',86,'New York');
+                        
+Select *from PARTS;
+
+create table PROJECTS(`J#` char(4),
+					  Jname varchar(25),
+					  City char(15)
+                      );
+                      
+insert into PROJECTS()values('J1','LIBRARY','Athens'),
+							('J2','BLOODBANK','Paris'),
+							('J3','GRADESYSYTEM','London'),
+                            ('J4','LMS','New York'),
+							('J5','BANK MANAGMENT ','Sydeny'),
+							('J6','DELIVERY','Boston');
+             
+create table SUPPLIER_PARTS_PROJECT(
+`S#` char(4),
+`P#` char(4),
+`J#` char(4),
+Qty  int(10)
+);
+
+
+
+insert into SUPPLIER_PARTS_PROJECT values('S1','P2','J3',100),
+										('S2','P4','J6',120),
+										('S3','P3','J6',145),
+										('S4','P6','J6',40),
+                                        ('S5','P3','J5',640),
+                                        ('S6','P1','J2',300);
+    
+ #5. Display all the data from the S table.
+ select * from supplier;
+ 
+ #6. Display only the S# and SNAME fields from the S table.
+ select `S#`, sname from supplier;
+ 
+ #7.Display the PNAME and COLOR from the P table for the CITY=”London”.
+ select pname,color from parts where city='London';
+ 
+ #8. Display all the Suppliers from London.
+ select *from Supplier where city='London';
+ 
+ #9. Display all the Suppliers from Paris or Athens.
+ select *from Supplier where city='Paris' or city='Athens';
+ 
+ #10. Display all the Projects in Athens.
+ select *from projects where city='Athens';
+ 
+ #11. Display all the Partnames with the weight between 12 and 14 (inclusive of both).
+ select * from parts where weight between 60 and 100;
+ 
+ #12. Display all the Suppliers with a Status greater than or equal to 20.
+ select *from supplier where status>=20;
+ 
+ #13. Display all the Suppliers except the Suppliers from London.
+select *from Supplier where city!='London';
+
+#14. Display only the Cities from where the Suppliers come from.
+select distinct city from supplier;
+ 
+#15. Assuming that the Part Weight is in GRAMS, display the same in MILLIGRAMS and KILOGRAMS.
+ select Weight as `Weight in grams`,Weight*1000 AS `weight in milligrams`, 
+ Weight/1000 As `Weight in killograms` from parts;
+ 
