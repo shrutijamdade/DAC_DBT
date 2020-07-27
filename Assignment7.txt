@@ -1,0 +1,25 @@
+                  #Summarizing Data with Aggregate Functions.
+use product;
+show tables;
+select *from customers;
+select *from orders;
+select *from salespeople;
+#1) Write a query that counts all orders for October 3.
+select count(Odate) from orders where Odate='1990-10-03';
+
+#2) Write a query that counts the number of different non-NULL city values in the Customers table.
+select count(ifnull(city,0)) from customers;
+
+#3) Write a query that selects each customer’s smallest order.
+select min(amt) from orders group by snum;
+
+#4) Write a query that selects the first customer, in alphabetical order, whose name begins with G.
+select cname from customers where cname like 'G%' order by cname asc;
+
+#5) Write a query that selects the highest rating in each city.
+select max(rating),city from customers group by city;
+
+#6) Write a query that counts the number of salespeople registering orders for each day. 
+#(If a salesperson has more than one order on a given day, he or she should be counted only once.).
+
+select Snum,count(*) from orders group by Snum; 
